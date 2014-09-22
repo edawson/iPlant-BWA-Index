@@ -1,0 +1,151 @@
+{
+    "available": true,
+    "executionSystem": "Stampede",
+    "deploymentPath": "/work/02057/ericd92/iPlant/apps/BWA-index/stampede",
+    "name": "$IPLANTUSERNAME-bwa-index",
+    "checkpointable": false,
+    "helpURI": "http://bio-bwa.sourceforge.net/",
+    "label": "BWA index",
+    "parallelism": "SERIAL",
+    "ontology": "http://sswapmeet.sswap.info/mime/application/X-fasta",
+    "shortDescription": "Creates a BWA index from an input genome which can be used for mapping reads to the genome.",
+    "longDescription":"",
+    "tags": ["aligner", "NGS"],
+    "inputs": [
+        {"id": "inputFasta",
+        "value":
+            {"default": "",
+            "order": 0,
+            "required": true,
+            "validator": "fa$||fas$||fasta$",
+            "visible": true},
+        "semantics":
+            {"ontology":["http://sswapmeet.sswap.info/mime/application/X-fasta"],
+             "minCardinality":1,
+             "fileTypes":["raw-0"]},
+        "details":
+            {"description": "",
+            "label": "The FASTA genome to generate a BWA index for.",
+            "argument": null,
+            "showArgument": false}}
+        ],
+    "parameters": [
+        {"id": "useBWTSW",
+            "default": false,
+            "order": 1,
+            "type": "bool",
+            "visible": true,
+            "semantics":
+                    {"ontology":["xs:boolean"]},
+            "details":
+                    {"description":"",
+                        "label":"Whether to use the is or bwtsw methodfor indexing.",
+                        "argument":"-a ",
+                        "showArgument":true}
+            },
+        {"id": "prefixName",
+        "default": "ind",
+        "order": 0,
+        "type": "string",
+        "visible": true,
+        "semantics":
+                {"ontology":["xs:string"]},
+        "details":
+                {"description": "",
+                "label":"The prefix for output files.",
+                "argument": "-p",
+                "showArgument":true}
+            }
+        
+        ],
+    "outputs": [
+        {"id": "bwtFile",
+            "value":
+                {"default":"",
+                 "order":0,
+                 "required":false,
+                 "validator":".bwt$",
+                 "visible":true},
+                 "semantics":
+                         {"ontology":["http://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Fdata_3210"],
+                         "minCardinality":1,
+                         "fileTypes":["raw-0"]},
+                 "details":
+                         {"description":"",
+                          "label":"BWT index file",
+                          "argument":null,
+                          "showArgument":false}
+                },
+          {"id": "saFile",
+              "value":
+                  {"default":"",
+                   "order":0,
+                   "required":false,
+                   "validator":".sa$",
+                   "visible":true},
+                   "semantics":
+                           {"ontology":["http://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Fdata_3210"],
+                           "minCardinality":1,
+                           "fileTypes":["raw-0"]},
+                   "details":
+                           {"description":"",
+                            "label":"SA index file",
+                            "argument":null,
+                            "showArgument":false}
+                  },
+          {"id": "ambFile",
+              "value":
+                  {"default":"",
+                   "order":0,
+                   "required":false,
+                   "validator":".amb$",
+                   "visible":true},
+                   "semantics":
+                           {"ontology":["http://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Fdata_3210"],
+                           "minCardinality":1,
+                           "fileTypes":["raw-0"]},
+                   "details":
+                           {"description":"",
+                            "label":"AMB index file",
+                            "argument":null,
+                            "showArgument":false}
+                  },
+          {"id": "annFile",
+              "value":
+                  {"default":"",
+                   "order":0,
+                   "required":false,
+                   "validator":".ann$",
+                   "visible":true},
+                   "semantics":
+                           {"ontology":["http://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Fdata_3210"],
+                           "minCardinality":1,
+                           "fileTypes":["raw-0"]},
+                   "details":
+                           {"description":"",
+                            "label":"ANN index file",
+                            "argument":null,
+                            "showArgument":false}
+                  },
+          {"id": "pacFile",
+              "value":
+                  {"default":"",
+                   "order":0,
+                   "required":false,
+                   "validator":".bwt$",
+                   "visible":true},
+                   "semantics":
+                           {"ontology":["http://bioportal.bioontology.org/ontologies/EDAM/?p=classes&conceptid=http%3A%2F%2Fedamontology.org%2Fdata_3210"],
+                           "minCardinality":1,
+                           "fileTypes":["raw-0"]},
+                   "details":
+                           {"description":"",
+                            "label":"PAC index file",
+                            "argument":null,
+                            "showArgument":false}
+                  }
+
+        ]
+}
+
+

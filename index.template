@@ -1,0 +1,29 @@
+##inputs
+## FASTA-formatted reference genome to be indexed
+inputFasta=${inputFasta}
+
+## The output prefix specified by -p flag
+outputPrefix={prefixName}
+
+## boolean; use BWTSW (for genomes >2g in size)
+useBWTSW=${useBWTSW}
+
+
+## Unpack the pre-built binaries
+tar xvf bin.tgz
+
+
+## Append the bin directory to the path so we can run bwa
+export PATH=$PATH:"`pwd`/bin"
+
+
+## Follow the docs' model for building up the command line invocation
+ARGS=""
+
+if [ ${useBWTSW} -eq 1 ]; then ARGS="$ARGS -a bwtsw"; else ARGS="$ARGS -a is"; fi
+
+ARGS="${ARGS} -p ${outputPrefix}"
+
+bwa index ${ARGS} $inputFasta
+
+rm -rf bin
