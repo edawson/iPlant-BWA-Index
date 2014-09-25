@@ -1,13 +1,17 @@
 {
     "available": true,
-    "executionSystem": "Stampede",
-    "deploymentPath": "/work/02057/ericd92/iPlant/apps/BWA-index/stampede",
-    "name": "$IPLANTUSERNAME-bwa-index",
+    "executionSystem": "stampede-06212014-1555-ericd92",
+    "executionType": "HPC",
+    "deploymentPath": "/ericco92/applications/BWA-index/stampede",
+    "name": "bwa-index",
+    "version": "0.7.10",
     "checkpointable": false,
     "helpURI": "http://bio-bwa.sourceforge.net/",
     "label": "BWA index",
     "parallelism": "SERIAL",
-    "ontology": "http://sswapmeet.sswap.info/mime/application/X-fasta",
+    "templatePath": "index.template",
+    "testPath": "test_bwa_index.sh",
+    "ontology": ["http://sswapmeet.sswap.info/mime/application/fasta"],
     "shortDescription": "Creates a BWA index from an input genome which can be used for mapping reads to the genome.",
     "longDescription":"",
     "tags": ["aligner", "NGS"],
@@ -31,30 +35,32 @@
         ],
     "parameters": [
         {"id": "useBWTSW",
-            "default": false,
-            "order": 1,
-            "type": "bool",
-            "visible": true,
+            "value": {
+                "default": false,
+                "order": 1,
+                "type": "bool",
+                "visible": true},
             "semantics":
-                    {"ontology":["xs:boolean"]},
+                        {"ontology":["xs:boolean"]},
             "details":
                     {"description":"",
-                        "label":"Whether to use the is or bwtsw methodfor indexing.",
+                        "label":"Use BWTSW (for genomes > 2gigabytes",
                         "argument":"-a ",
                         "showArgument":true}
             },
         {"id": "prefixName",
-        "default": "ind",
-        "order": 0,
-        "type": "string",
-        "visible": true,
+        "value": {
+            "default": "ind",
+            "order": 0,
+            "type": "string",
+            "visible": true},
         "semantics":
                 {"ontology":["xs:string"]},
         "details":
                 {"description": "",
                 "label":"The prefix for output files.",
-                "argument": "-p",
-                "showArgument":true}
+                "argument": "",
+                "showArgument":false}
             }
         
         ],

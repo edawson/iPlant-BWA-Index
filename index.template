@@ -3,7 +3,7 @@
 inputFasta=${inputFasta}
 
 ## The output prefix specified by -p flag
-outputPrefix={prefixName}
+outputPrefix=${prefixName}
 
 ## boolean; use BWTSW (for genomes >2g in size)
 useBWTSW=${useBWTSW}
