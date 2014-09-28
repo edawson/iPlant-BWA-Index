@@ -44,7 +44,7 @@
                         {"ontology":["xs:boolean"]},
             "details":
                     {"description":"",
-                        "label":"Use BWTSW (for genomes > 2gigabytes",
+                        "label":"Use BWTSW (for genomes > 2 gigabytes)",
                         "argument":"-a ",
                         "showArgument":true}
             },
